@@ -1,0 +1,20 @@
+{
+  "name": "netbotix",
+  "version": "1.0.0",
+  "description": "Hack-A-Web Hackathon by E-Cell Summit NITB",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "cd backend_api && npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sakshi11101/Netbotix.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sakshi11101/Netbotix/issues"
+  },
+  "homepage": "https://github.com/sakshi11101/Netbotix#readme"
+}
