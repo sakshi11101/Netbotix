@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="jobdesc.css">
+</head>
+<body>
+<div class="container">
+    <header class="header">
+      <h1 id="title" class="text-center">Job Description Form</h1>
+    </header>
+    <form id="survey-form">
+      
+      <div class="form-group">
+        <label id="cn-label" for="cn">Company Name</label>
+        <input
+          type="text"
+          name="cn"
+          id="cn"
+          class="form-control"
+          placeholder="Enter your Company Name"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label id="jt-label" for="jt">Job Title</label>
+        <input
+          type="text"
+          name="jt"
+          id="jt"
+          class="form-control"
+          placeholder="Enter the Job Title"
+          required
+        />
+      </div>
+      
+      <div class="form-group">
+        <p>Job Description</p>
+        <textarea
+          id="jd"
+          class="input-textarea"
+          name="comment"
+          placeholder="Write the description for the Job"
+        ></textarea>
+      </div>
+
+      <div class="form-group">
+        <p>Eligibility Criteria</p>
+        <textarea
+          id="ec"
+          class="input-textarea"
+          name="comment"
+          placeholder="Write the Eligiblity Criteria for the Job"
+        ></textarea>
+      </div>
+  
+      <div class="form-group">
+        <p>Location Of Job</p>
+        <div class="form-group">
+          <label id="country-label" for="country">Country</label>
+          <input
+            type="text"
+            name="country"
+            id="country"
+            class="form-control"
+            placeholder="Enter the Country"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label id="state-label" for="state">State</label>
+          <input
+            type="text"
+            name="state"
+            id="state"
+            class="form-control"
+            placeholder="Enter the State"
+            required
+          />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <p>Type of Job</p>
+        <label>
+          <input
+            name="user-recommend"
+            value="intern"
+            type="checkbox"
+            class="input-radio"
+            checked
+          />Internship</label
+        >
+        <label>
+          <input
+            name="user-recommend"
+            value="ftj"
+            type="checkbox"
+            class="input-radio"
+          />Full Time Job</label
+        >
+  
+        <label
+          ><input
+            name="user-recommend"
+            value="ptj"
+            type="checkbox"
+            class="input-radio"
+          />Part Time Job</label
+        >
+      </div>
+  
+      <div class="form-group">
+        <button type="submit" id="submit" class="submit-button">
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+  </body>
+  </html>
