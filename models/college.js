@@ -1,35 +1,34 @@
 const mongoose = require("mongoose");
 
-const companySchema = new mongoose.Schema({
-  companyName: {
+const collegeSchema = new mongoose.Schema({
+  collegeName: {
     type: String,
     required: [true, "Please provide company name"],
   },
-  companyEmail: {
+  collegeEmail: {
     type: String,
     required: [true, "Please provide email"],
   },
-  HR_Email: {
+  TP_Email: {
     type: String,
     required: [true, "Please provide HR email"],
   },
-  HR_Name: {
+  TP_Name: {
     type: String,
     required: [true, "Please provide Hr Name"],
   },
-  type:{
-    type:String,
-    default:"c"
+  type: {
+    type: String,
+    default: "t",
   },
   password: {
     type: String,
     required: [true, "Please provide password"],
   },
-
   createdAt: {
     type: Date,
     default: Date.now,
   },
 });
 
-module.exports = mongoose.model("Company", companySchema);
+module.exports = mongoose.model("College", collegeSchema);

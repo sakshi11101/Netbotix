@@ -2,7 +2,7 @@ const Company = require("../models/company");
 const BigPromise = require("../middlewares/bigPromise");
 const CustomError = require("../utils/customError");
 const bcrypt = require("bcryptjs");
-const  cookieToken = require('../utils/cookieToken')
+const cookieToken = require("../utils/cookieToken");
 
 exports.signup = BigPromise(async (req, res, next) => {
   const { companyName, companyEmail, HR_Email, HR_Name, password } = req.body;
@@ -10,29 +10,31 @@ exports.signup = BigPromise(async (req, res, next) => {
     return next(new CustomError("Please provide all data", 400));
   }
 
-  const  encpassword = await bcrypt.hash(password,10)
+  const encpassword = await bcrypt.hash(password, 10);
 
   const company = await Company.create({
     companyName,
     companyEmail,
     HR_Email,
     HR_Name,
-    password:encpassword,
+    password: encpassword,
   });
 
   res.status(201).json({
-    success:true,
-    message:"Company account created successfully you can now login"
-  })
+    success: true,
+    message: "Company account created successfully you can now login",
+  });
 });
 
 exports.login = BigPromise(async (req, res, next) => {
   const { email, password } = req.body;
 
-  if (!email ||  !password) {
+  if (!email || !password) {
     return next(new CustomError("please provide email and password"));
   }
-  const company = await Company.findOne({ companyEmail:email }).select("password");
+  const company = await Company.findOne({ companyEmail: email }).select(
+    "password"
+  );
 
   if (!company) {
     return next(new CustomError("You are not registered", 400));

@@ -5,7 +5,6 @@ const bcrypt = require("bcryptjs");
 const cookieToken = require("../utils/cookieToken");
 const Company = require("../models/company");
 
-
 exports.signup = BigPromise(async (req, res, next) => {
   const { name, email, Contact_Name, Contact_Email, password, type } = req.body;
   if (!name || !email || !Contact_Name || !Contact_Email || !password) {
@@ -40,33 +39,29 @@ exports.signup = BigPromise(async (req, res, next) => {
       success: true,
       message: "College account created successfully you can now login",
     });
-  }else{
+  } else {
     return next(new CustomError("Please provide all data", 400));
   }
-  
 });
 
 exports.login = BigPromise(async (req, res, next) => {
-  const { email, password ,type} = req.body;
+  const { email, password, type } = req.body;
 
   if (!email || !password || !type) {
-    return next(new CustomError("please provide email and password and type of user"));
+    return next(
+      new CustomError("please provide email and password and type of user")
+    );
   }
 
-  let user = ''
+  let user = "";
 
-
-if (type == 'c') {
-   user = await Company.findOne({ companyEmail: email }).select(
-    "password"
-  );
-}else if (type == 't') {
-  user = await College.findOne({ collegeEmail: email }).select(
-    "password"
-  );
-} else {
-  return next(new CustomError("please provide type of user"));
-}
+  if (type == "c") {
+    user = await Company.findOne({ companyEmail: email }).select("password");
+  } else if (type == "t") {
+    user = await College.findOne({ collegeEmail: email }).select("password");
+  } else {
+    return next(new CustomError("please provide type of user"));
+  }
 
   if (!user) {
     return next(new CustomError("You are not registered", 400));
